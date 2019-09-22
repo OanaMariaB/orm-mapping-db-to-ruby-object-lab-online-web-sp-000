@@ -68,7 +68,7 @@ class Student
     FROM students
     WHERE grade = 9
     SQL
-    all_in_9 = DB[:conn].execute(sql).map do |row|
+    all_in_9 = DB[:conn].execute(sql, students.name, students.grade).map do |row|
       self.new_from_db(row)
       all_in_9
     end
