@@ -68,4 +68,5 @@ end
     FROM students
     WHERE grade = 9
     SQL
+    DB[:conn].execute(sql)
   end
