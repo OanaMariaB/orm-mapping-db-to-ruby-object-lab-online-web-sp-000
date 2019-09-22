@@ -26,11 +26,9 @@ class Student
     WHERE name = ?
     LIMIT 1
     SQL
-
     DB[:conn].execute(sql, name).map do |row|
       self.new_from_db(row)
     end.first
-
   end
 
   def save
@@ -38,7 +36,6 @@ class Student
       INSERT INTO students (name, grade)
       VALUES (?, ?)
     SQL
-
     DB[:conn].execute(sql, self.name, self.grade)
   end
 
@@ -57,7 +54,7 @@ class Student
   def self.drop_table
     sql = "DROP TABLE IF EXISTS students"
     DB[:conn].execute(sql)
-    end
+  end
 
 
   def self.all_students_in_grade_9
